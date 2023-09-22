@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:google_sign_in/widgets.dart';
+import 'package:jobhub/authintication/controllers/auth_controller.dart';
+import 'package:jobhub/binding_controller.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -15,14 +20,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      initialBinding: InitialBindings(),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'JobHub',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF008fbe)),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'PSU JobHub'),
     );
   }
 }
@@ -47,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.find();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -54,15 +61,21 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Login to JobHub using your PSU Google account',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
+            GestureDetector(
+              onTap: () async {
+                await authController.signInWithGoogle();
+              },
+              child: Column(
+                children: [
+                  Container(child: Text('log in by Google')),
+                ],
+              ),
+            )
           ],
         ),
       ),
