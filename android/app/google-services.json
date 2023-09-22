@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "615075699041",
+    "project_id": "jobhub-cd71a",
+    "storage_bucket": "jobhub-cd71a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:615075699041:android:e2e52f202125052ac10d20",
+        "android_client_info": {
+          "package_name": "com.example.jobhub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCJsmL1UV5w19e0Piso5TAxlzffwTVuAo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
