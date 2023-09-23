@@ -5,6 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_sign_in/widgets.dart';
 import 'package:jobhub/authintication/controllers/auth_controller.dart';
 import 'package:jobhub/binding_controller.dart';
+import 'package:jobhub/shared/helpers.dart';
 import 'package:jobhub/student_landing/views/student_landing.dart';
 import 'firebase_options.dart';
 
@@ -75,22 +76,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   await authController.signInWithGoogle();
                   if (authController.googleUser?.email.contains('psu.edu.sa') ??
                       false) {
-                    Get.snackbar(
-                      'Successfull login ',
-                      '',
-                      backgroundColor: Colors.green,
-                      snackPosition: SnackPosition.TOP,
-                      duration: Duration(seconds: 1),
-                    );
-                    Get.to(() => StudentLanding());
+                    showMessage(
+                        title: 'Successfully logged in', color: Colors.green);
+                    Get.offAll(() => StudentLanding());
                   } else {
-                    Get.snackbar(
-                      'Error', // Title
-                      'You need to login using PSU Gmail account', // Message
-                      backgroundColor: Colors.red,
-                      snackPosition: SnackPosition.TOP,
-                      duration: Duration(seconds: 10),
-                    );
+                    showMessage(
+                        title: 'Error', // Title
+                        message: 'You need to login using PSU Gmail account',
+                        duration: 10,
+                        color: Colors.red);
                   }
                 } catch (e) {
                   print(e);
