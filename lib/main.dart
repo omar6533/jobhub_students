@@ -25,6 +25,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'JobHub',
       theme: ThemeData(
+        secondaryHeaderColor: Color(0xFFffc107),
+        primaryColor: Color(0xFF008fbe),
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF008fbe)),
         useMaterial3: true,
       ),
@@ -72,17 +74,21 @@ class _MyHomePageState extends State<MyHomePage> {
               },
               child: Column(
                 children: [
-                  Container(child: Text('log in by Google')),
+                  Container(
+                      padding: EdgeInsets.all(16),
+                      margin: EdgeInsets.symmetric(horizontal: 16),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12)),
+                      child: Image.asset(
+                          width: 100,
+                          height: 100,
+                          fit: BoxFit.contain,
+                          'assets/google_logo.png')),
                 ],
               ),
             )
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
