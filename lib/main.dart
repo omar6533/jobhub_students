@@ -81,7 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Get.offAll(() => StudentLanding());
                   } else {
                     showMessage(
-                        title: 'Error', // Title
+                        title: 'Error',
                         message: 'You need to login using PSU Gmail account',
                         duration: 10,
                         color: Colors.red);
