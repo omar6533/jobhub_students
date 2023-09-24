@@ -1,6 +1,6 @@
 # jobhub
 
-A new Flutter project.
+A new Flutter project of a student placement system.
 
 ## Getting Started
 
