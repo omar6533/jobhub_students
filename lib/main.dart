@@ -7,7 +7,7 @@ import 'package:jobhub/authintication/controllers/auth_controller.dart';
 import 'package:jobhub/binding_controller.dart';
 import 'package:jobhub/constants.dart';
 import 'package:jobhub/shared/helpers.dart';
-import 'package:jobhub/student_landing/views/student_landing.dart';
+import 'package:jobhub/student_landing/views/student_landing_view.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
