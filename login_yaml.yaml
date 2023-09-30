@@ -1,0 +1,6 @@
+description: My first Fluttium flow.
+---
+- pressOn:
+    text: 'Login By PSU Email' # An optional text regexp that is used to find a widget by semantic labels and visible text
+- pressOn:
+    text: 'Continue'

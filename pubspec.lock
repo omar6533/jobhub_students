@@ -49,6 +49,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  build:
+    dependency: transitive
+    description:
+      name: build
+      sha256: "80184af8b6cb3e5c1c4ec6d8544d27711700bc3e6d2efad04238c7b5290889f0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.1"
+  built_collection:
+    dependency: transitive
+    description:
+      name: built_collection
+      sha256: "376e3dd27b51ea877c28d525560790aee2e6fbb5f20e2f85d5081027d94e2100"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.1.1"
+  built_value:
+    dependency: transitive
+    description:
+      name: built_value
+      sha256: a8de5955205b4d1dbbbc267daddf2178bd737e4bab8987c04a500478c9651e74
+      url: "https://pub.dev"
+    source: hosted
+    version: "8.6.3"
   characters:
     dependency: transitive
     description:
@@ -65,6 +89,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
+  code_builder:
+    dependency: transitive
+    description:
+      name: code_builder
+      sha256: "1be9be30396d7e4c0db42c35ea6ccd7cc6a1e19916b5dc64d6ac216b5544d677"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.7.0"
   collection:
     dependency: transitive
     description:
@@ -97,6 +129,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  dart_style:
+    dependency: transitive
+    description:
+      name: dart_style
+      sha256: "1efa911ca7086affd35f463ca2fc1799584fb6aa89883cf0af8e3664d6a02d55"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.3.2"
+  equatable:
+    dependency: transitive
+    description:
+      name: equatable
+      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -161,6 +209,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.8.0"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      sha256: "25517a4deb0c03aa0f32fd12db525856438902d9c16536311e76cdc57b31d7d1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -183,6 +239,37 @@ packages:
     dependency: transitive
     description: flutter
     source: sdk
+    version: "0.0.0"
+  fluttium:
+    dependency: transitive
+    description:
+      name: fluttium
+      sha256: "1cbef8df698698b4eec777a1c053bceb1795401094e46bd9924302b5365512e9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
+  fluttium_interfaces:
+    dependency: transitive
+    description:
+      name: fluttium_interfaces
+      sha256: "977a1bfd003f1be9b3375eda254785f0786d653b99b1b749148bd9f3014d0619"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
+  fluttium_protocol:
+    dependency: transitive
+    description:
+      name: fluttium_protocol
+      sha256: "006a83fb676ee5857a50697d9ec334da02788469b84984be8947cdf9ae22636f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
+  fluttium_test_runner:
+    dependency: "direct dev"
+    description:
+      path: "/var/folders/yk/zxf9lr0156n54s7bn_ggd9_m0000gn/T/fluttium_23QOpS"
+      relative: false
+    source: path
     version: "0.0.0"
   get:
     dependency: "direct main"
@@ -280,6 +367,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  log_action:
+    dependency: transitive
+    description:
+      name: log_action
+      sha256: "3c58c7b3b6f89d8d06ea218bbca08ee45a14119e0aa339043ac8c5df7824a8cb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.0"
+  logging:
+    dependency: transitive
+    description:
+      name: logging
+      sha256: "623a88c9594aa774443aa3eb2d41807a48486b5613e67599fb4c41c0ad47c340"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   matcher:
     dependency: transitive
     description:
@@ -304,6 +407,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.1"
+  mockito:
+    dependency: "direct main"
+    description:
+      name: mockito
+      sha256: "7d5b53bcd556c1bc7ffbe4e4d5a19c3e112b7e925e9e172dd7c6ad0630812616"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.4.2"
   package_config:
     dependency: transitive
     description:
@@ -357,6 +468,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  source_gen:
+    dependency: transitive
+    description:
+      name: source_gen
+      sha256: fc0da689e5302edb6177fdd964efcb7f58912f43c28c2047a808f5bfff643d16
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.0"
   source_span:
     dependency: transitive
     description:
