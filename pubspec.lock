@@ -137,14 +137,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
-  equatable:
-    dependency: transitive
-    description:
-      name: equatable
-      sha256: c2b87cb7756efdf69892005af546c56c0b5037f54d2a88269b4f347a505e3ca2
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -239,37 +231,6 @@ packages:
     dependency: transitive
     description: flutter
     source: sdk
-    version: "0.0.0"
-  fluttium:
-    dependency: transitive
-    description:
-      name: fluttium
-      sha256: "1cbef8df698698b4eec777a1c053bceb1795401094e46bd9924302b5365512e9"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0"
-  fluttium_interfaces:
-    dependency: transitive
-    description:
-      name: fluttium_interfaces
-      sha256: "977a1bfd003f1be9b3375eda254785f0786d653b99b1b749148bd9f3014d0619"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0"
-  fluttium_protocol:
-    dependency: transitive
-    description:
-      name: fluttium_protocol
-      sha256: "006a83fb676ee5857a50697d9ec334da02788469b84984be8947cdf9ae22636f"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.0"
-  fluttium_test_runner:
-    dependency: "direct dev"
-    description:
-      path: "/var/folders/yk/zxf9lr0156n54s7bn_ggd9_m0000gn/T/fluttium_23QOpS"
-      relative: false
-    source: path
     version: "0.0.0"
   get:
     dependency: "direct main"
@@ -367,14 +328,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
-  log_action:
-    dependency: transitive
-    description:
-      name: log_action
-      sha256: "3c58c7b3b6f89d8d06ea218bbca08ee45a14119e0aa339043ac8c5df7824a8cb"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.2.0"
   logging:
     dependency: transitive
     description:
