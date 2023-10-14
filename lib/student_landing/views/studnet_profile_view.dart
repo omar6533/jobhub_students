@@ -60,7 +60,7 @@ class StudentProfileView extends StatelessWidget {
                         JobHubButton(
                           text: 'Add your data',
                           onPressed: () {
-                            Get.to(StudentProfileInfoView());
+                            Get.to(() => StudentProfileInfoView());
                           },
                         )
                       ],
