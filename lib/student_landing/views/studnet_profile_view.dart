@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:jobhub/authintication/controllers/auth_controller.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/student_landing/controller/studnet_profile_controller.dart';
+import 'package:jobhub/student_landing/views/student_profile_infor.dart';
 
 class StudentProfileView extends StatelessWidget {
   const StudentProfileView({super.key});
@@ -58,7 +59,9 @@ class StudentProfileView extends StatelessWidget {
                         ),
                         JobHubButton(
                           text: 'Add your data',
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(StudentProfileInfoView());
+                          },
                         )
                       ],
                     ),
