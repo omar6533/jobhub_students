@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:google_sign_in/widgets.dart';
 import 'package:jobhub/authintication/controllers/auth_controller.dart';
 import 'package:jobhub/binding_controller.dart';
 import 'package:jobhub/constants.dart';
+import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/shared/helpers.dart';
 import 'package:jobhub/student_landing/views/student_landing_view.dart';
 import 'firebase_options.dart';
@@ -23,17 +25,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      initialBinding: InitialBindings(),
-      debugShowCheckedModeBanner: false,
-      title: 'JobHub',
-      theme: ThemeData(
-        secondaryHeaderColor: Color(0xFFffc107),
-        primaryColor: Color(0xFF008fbe),
-        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF008fbe)),
-        useMaterial3: true,
+    return FlutterSizer(
+      builder: (context, orientation, screenType) => GetMaterialApp(
+        initialBinding: InitialBindings(),
+        debugShowCheckedModeBanner: false,
+        title: 'JobHub',
+        theme: ThemeData(
+          secondaryHeaderColor: Color(0xFFffc107),
+          primaryColor: Color(0xFF008fbe),
+          colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF008fbe)),
+          useMaterial3: true,
+        ),
+        home: const MyHomePage(title: 'PSU JobHub'),
       ),
-      home: const MyHomePage(title: 'PSU JobHub'),
     );
   }
 }
@@ -93,18 +97,9 @@ class _MyHomePageState extends State<MyHomePage> {
               SizedBox(
                 width: 343,
                 height: 40,
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      shape: MaterialStateProperty.all<OutlinedBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              8), // Set the border radius here
-                        ),
-                      ),
-                      padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                          EdgeInsets.zero),
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(AppColors.primary)),
+                child: JobHubButton(
+                  text: 'Login By PSU Email',
+                  imagePath: 'assets/google_logo.png',
                   onPressed: () async {
                     try {
                       await authController.signInWithGoogle();
@@ -131,22 +126,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       print(e); //hello
                     }
                   },
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                            height: 30,
-                            width: 30,
-                            fit: BoxFit.contain,
-                            'assets/google_logo.png'),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          'Login By PSU Email',
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ]),
                 ),
               )
             ],

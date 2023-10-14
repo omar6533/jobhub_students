@@ -1,7 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:jobhub/authintication/controllers/auth_controller.dart';
+import 'package:jobhub/shared/components/jobHub_button.dart';
+import 'package:jobhub/student_landing/controller/studnet_profile_controller.dart';
 
 class StudentProfileView extends StatelessWidget {
   const StudentProfileView({super.key});
@@ -9,6 +13,8 @@ class StudentProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AuthController authController = Get.find();
+    StudentProfileController studentProfileController =
+        Get.put(StudentProfileController());
     return ListView(
       children: [
         Padding(
@@ -34,6 +40,30 @@ class StudentProfileView extends StatelessWidget {
               height: 8,
             ),
             Text('${authController.googleUser?.displayName}'),
+            SizedBox(
+              height: 10.h,
+            ),
+            studentProfileController.isStudentProfileEmpty.isTrue
+                ? Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      children: [
+                        SvgPicture.asset('assets/Error.svg'),
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        Text('You need to add your studnet profile data'),
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        JobHubButton(
+                          text: 'Add your data',
+                          onPressed: () {},
+                        )
+                      ],
+                    ),
+                  )
+                : const SizedBox()
           ],
         )
       ],
