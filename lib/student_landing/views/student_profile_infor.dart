@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:get/get.dart';
+import 'package:jobhub/constants.dart';
+import 'package:jobhub/shared/components/jobHub_back_button.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
 
 class StudentProfileInfoView extends StatelessWidget {
@@ -12,6 +15,7 @@ class StudentProfileInfoView extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
+            const JobHubBackButton(),
             SizedBox(
               height: 6.h,
             ),

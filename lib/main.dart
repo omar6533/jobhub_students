@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         title: 'JobHub',
         theme: ThemeData(
           secondaryHeaderColor: Color(0xFFffc107),
-          primaryColor: Color(0xFF008fbe),
+          primaryColor: AppColors.primary,
           colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF008fbe)),
           useMaterial3: true,
         ),
