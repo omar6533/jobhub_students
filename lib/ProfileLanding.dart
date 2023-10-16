@@ -6,10 +6,10 @@ import 'package:flutter/rendering.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
-  State<MyHomePage> createState() => HomeScreen();
+  State<MyHomePage> createState() => ProfileLanding();
 }
 
-class HomeScreen extends State<MyHomePage> {
+class ProfileLanding extends State<MyHomePage> {
   List<String> majors = [
     'بكالوريوس المحاسبة Bachelor of Accounting',
     'بكالوريوس المالية Bachelor of Finance',
