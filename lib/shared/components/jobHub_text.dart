@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobhub/constants.dart';
 
 class JobHubText extends StatelessWidget {
   String? text;
@@ -19,3 +20,5 @@ class JobHubText extends StatelessWidget {
 }
 
 TextStyle? titleStyle = TextStyle(fontSize: 24, fontWeight: FontWeight.w700);
+TextStyle? nameStyle = TextStyle(
+    fontSize: 20, fontWeight: FontWeight.w700, color: AppColors.primary);
