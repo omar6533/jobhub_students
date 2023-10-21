@@ -7,6 +7,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 
 class AuthController extends GetxController {
   GoogleSignInAccount? googleUser;
+  FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+
   TextEditingController emailController = TextEditingController();
   Future<dynamic> signInWithGoogle() async {
     // Trigger the authentication flow
@@ -27,5 +29,20 @@ class AuthController extends GetxController {
 
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
+  }
+
+  String? getGoogleUserID() {
+    try {
+      // Ensure that a user is signed in
+      User? user = _firebaseAuth.currentUser;
+      if (user != null) {
+        //J6i389dlTUW2tbGZ7VqNygHqvp73
+        return user.uid; // Firebase User UID
+        //J6i389dlTUW2tbGZ7VqNygHqvp73
+      }
+    } catch (error) {
+      print("Error getting Firebase User UID: $error");
+    }
+    return null;
   }
 }
