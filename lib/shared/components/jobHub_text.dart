@@ -22,3 +22,5 @@ class JobHubText extends StatelessWidget {
 TextStyle? titleStyle = TextStyle(fontSize: 24, fontWeight: FontWeight.w700);
 TextStyle? nameStyle = TextStyle(
     fontSize: 20, fontWeight: FontWeight.w700, color: AppColors.primary);
+TextStyle? size20BoldBlack =
+    TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.black);
