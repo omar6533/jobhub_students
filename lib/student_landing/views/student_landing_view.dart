@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jobhub/constants.dart';
 import 'package:jobhub/student_landing/controller/student_landing_controller.dart';
-import 'package:jobhub/student_landing/views/studnet_profile_view.dart';
+import 'package:jobhub/profile/views/studnet_profile_view.dart';
+import 'package:jobhub/student_landing/views/jobs_landing_view.dart';
 
 class StudentLanding extends StatelessWidget {
   const StudentLanding({super.key});
@@ -12,7 +13,7 @@ class StudentLanding extends StatelessWidget {
     StudentLandingController studentLandingController = Get.find();
     final listOfWidgets = [
       StudentProfileView(),
-      StudentProfileView(),
+      JobsLandingView(),
       StudentProfileView(),
     ];
     return Scaffold(
@@ -41,7 +42,8 @@ class StudentLanding extends StatelessWidget {
           ],
         ),
       ),
-      body: listOfWidgets[studentLandingController.selectedIndex.value],
+      body: Obx(
+          () => listOfWidgets[studentLandingController.selectedIndex.value]),
     );
   }
 }

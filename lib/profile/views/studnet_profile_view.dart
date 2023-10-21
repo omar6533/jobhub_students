@@ -5,8 +5,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:jobhub/authintication/controllers/auth_controller.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
-import 'package:jobhub/student_landing/controller/studnet_profile_controller.dart';
-import 'package:jobhub/student_landing/views/student_profile_infor.dart';
+import 'package:jobhub/profile/controller/studnet_profile_controller.dart';
+import 'package:jobhub/profile/views/student_profile_infor.dart';
 
 class StudentProfileView extends StatelessWidget {
   const StudentProfileView({super.key});
