@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
+import 'package:get/get.dart';
 import 'package:jobhub/shared/components/jobHub_back_button.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
 import 'package:jobhub/shared/components/jobHub_text_filed.dart';
+import 'package:jobhub/shared/helpers.dart';
 
 class StudentProfileSkillsViw extends StatefulWidget {
   const StudentProfileSkillsViw({super.key});
@@ -48,17 +50,20 @@ class _StudentSkillsViwState extends State<StudentProfileSkillsViw> {
           ),
           JobHubTextFiled(),
           SizedBox(
-            height: 1.h,
-          ),
-          JobHubText(
-            text: 'Attach',
-            style: size14Black,
-          ),
-          SizedBox(
             height: 5.h,
           ),
           JobHubButton(
-            onPressed: () {},
+            onPressed: () async {
+              showLoaderDialog(context);
+              await Future.delayed(Duration(seconds: 3));
+              showMessage(
+                  color: Colors.green,
+                  title: 'Submitted',
+                  message: 'Your data has been submitted');
+
+              dismissLoaderDialog(context);
+              // Get.back();
+            },
             text: "Submit",
           )
         ],
