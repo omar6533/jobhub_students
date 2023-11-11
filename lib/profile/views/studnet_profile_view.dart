@@ -60,7 +60,25 @@ class StudentProfileView extends StatelessWidget {
                         JobHubButton(
                           text: 'Add your data',
                           onPressed: () {
-                            Get.to(() => StudentProfileInfoView());
+                            showModalBottomSheet(
+                              isScrollControlled: true,
+                              context: context,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  topRight: Radius.circular(20),
+                                ),
+                              ),
+                              backgroundColor: const Color(0xFFF2F3F5),
+                              builder: (BuildContext context) {
+                                return SizedBox(
+                                  height: Get.height *
+                                      0.8, // Set height to 80% of screen height
+
+                                  child: StudentProfileInfoView(),
+                                );
+                              },
+                            );
                           },
                         )
                       ],
