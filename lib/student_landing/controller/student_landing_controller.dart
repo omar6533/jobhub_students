@@ -8,4 +8,11 @@ class StudentLandingController extends GetxController {
     selectedIndex.value = index;
     update();
   }
+
+  final List<String> ListOfCategories = [
+    "Development",
+    "Design",
+    "AI",
+    "Consultant",
+  ];
 }

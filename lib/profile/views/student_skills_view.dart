@@ -1,6 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:get/get.dart';
+import 'package:jobhub/profile/controller/studnet_profile_controller.dart';
 import 'package:jobhub/shared/components/jobHub_back_button.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
@@ -17,6 +20,8 @@ class StudentProfileSkillsViw extends StatefulWidget {
 class _StudentSkillsViwState extends State<StudentProfileSkillsViw> {
   @override
   Widget build(BuildContext context) {
+    StudentProfileController studentProfileController = Get.find();
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: ListView(
@@ -62,7 +67,7 @@ class _StudentSkillsViwState extends State<StudentProfileSkillsViw> {
                   message: 'Your data has been submitted');
 
               dismissLoaderDialog(context);
-              // Get.back();
+              studentProfileController.isStudentProfileEmpty.value = false;
             },
             text: "Submit",
           )

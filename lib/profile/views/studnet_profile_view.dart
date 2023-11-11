@@ -9,6 +9,7 @@ import 'package:jobhub/profile/views/student_skills_view.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/profile/controller/studnet_profile_controller.dart';
 import 'package:jobhub/profile/views/student_profile_experince.dart';
+import 'package:jobhub/shared/components/jobHub_text.dart';
 
 class StudentProfileView extends StatelessWidget {
   const StudentProfileView({super.key});
@@ -46,7 +47,7 @@ class StudentProfileView extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            studentProfileController.isStudentProfileEmpty.isTrue
+            Obx(() => studentProfileController.isStudentProfileEmpty.isTrue
                 ? Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     child: Column(
@@ -92,7 +93,21 @@ class StudentProfileView extends StatelessWidget {
                       ],
                     ),
                   )
-                : const SizedBox()
+                : SizedBox(
+                    height: 50.h,
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: PageView.builder(
+                        itemCount: 3,
+                        itemBuilder: (context, index) {
+                          return JobHubText(
+                            text: 'elemnt at $index',
+                            style: titleStyle,
+                          );
+                        },
+                      ),
+                    ),
+                  ))
           ],
         )
       ],

@@ -54,7 +54,7 @@ class JobsLandingView extends StatelessWidget {
         SizedBox(
           height: 5.h,
           child: ListView.builder(
-            itemCount: 10,
+            itemCount: studentLandingController.ListOfCategories.length,
             scrollDirection: Axis.horizontal,
             itemBuilder: (context, index) {
               return GestureDetector(
@@ -68,6 +68,7 @@ class JobsLandingView extends StatelessWidget {
                 },
                 child: Obx(
                   () => Container(
+                    width: 30.w,
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
                         color:
@@ -77,7 +78,10 @@ class JobsLandingView extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12)),
                     padding: const EdgeInsets.all(8),
                     margin: EdgeInsets.symmetric(horizontal: 2.w),
-                    child: JobHubText(text: 'category'),
+                    child: JobHubText(
+                        style: size14Black,
+                        text:
+                            '${studentLandingController.ListOfCategories[index]}'),
                   ),
                 ),
               );
