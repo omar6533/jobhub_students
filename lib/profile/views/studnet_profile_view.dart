@@ -4,9 +4,11 @@ import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:jobhub/authintication/controllers/auth_controller.dart';
+import 'package:jobhub/profile/views/student_profile_personal_info.dart';
+import 'package:jobhub/profile/views/student_skills_view.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/profile/controller/studnet_profile_controller.dart';
-import 'package:jobhub/profile/views/student_profile_infor.dart';
+import 'package:jobhub/profile/views/student_profile_experince.dart';
 
 class StudentProfileView extends StatelessWidget {
   const StudentProfileView({super.key});
@@ -75,10 +77,16 @@ class StudentProfileView extends StatelessWidget {
                                   height: Get.height *
                                       0.8, // Set height to 80% of screen height
 
-                                  child: StudentProfileInfoView(),
+                                  child: Obx(() =>
+                                      studentProfileController.widgetsList[
+                                          studentProfileController
+                                              .selectedwidgetIndex.value]),
                                 );
                               },
-                            );
+                            ).then((value) {
+                              studentProfileController
+                                  .selectedwidgetIndex.value = 0;
+                            });
                           },
                         )
                       ],
