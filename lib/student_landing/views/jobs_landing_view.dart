@@ -51,47 +51,47 @@ class JobsLandingView extends StatelessWidget {
         ),
 
         //category section
-        SizedBox(
-          height: 5.h,
-          child: ListView.builder(
-            itemCount: studentLandingController.ListOfCategories.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return GestureDetector(
-                onTap: () {
-                  if (studentLandingController.selectedCategory.value ==
-                      index) {
-                    studentLandingController.selectedCategory.value = -1;
-                  } else {
-                    studentLandingController.selectedCategory.value = index;
-                  }
-                },
-                child: Obx(
-                  () => Container(
-                    width: 30.w,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        color:
-                            studentLandingController.selectedCategory == index
-                                ? AppColors.primary
-                                : Colors.white,
-                        borderRadius: BorderRadius.circular(12)),
-                    padding: const EdgeInsets.all(8),
-                    margin: EdgeInsets.symmetric(horizontal: 2.w),
-                    child: JobHubText(
-                        style: size14Black,
-                        text:
-                            '${studentLandingController.ListOfCategories[index]}'),
-                  ),
-                ),
-              );
-            },
-          ),
-        ), // end of category section
+        // SizedBox(
+        //   height: 5.h,
+        //   child: ListView.builder(
+        //     itemCount: studentLandingController.ListOfCategories.length,
+        //     scrollDirection: Axis.horizontal,
+        //     itemBuilder: (context, index) {
+        //       return GestureDetector(
+        //         onTap: () {
+        //           if (studentLandingController.selectedCategory.value ==
+        //               index) {
+        //             studentLandingController.selectedCategory.value = -1;
+        //           } else {
+        //             studentLandingController.selectedCategory.value = index;
+        //           }
+        //         },
+        //         child: Obx(
+        //           () => Container(
+        //             width: 30.w,
+        //             decoration: BoxDecoration(
+        //                 border: Border.all(color: Colors.grey),
+        //                 color:
+        //                     studentLandingController.selectedCategory == index
+        //                         ? AppColors.primary
+        //                         : Colors.white,
+        //                 borderRadius: BorderRadius.circular(12)),
+        //             padding: const EdgeInsets.all(8),
+        //             margin: EdgeInsets.symmetric(horizontal: 2.w),
+        //             child: JobHubText(
+        //                 style: size14Black,
+        //                 text:
+        //                     '${studentLandingController.ListOfCategories[index]}'),
+        //           ),
+        //         ),
+        //       );
+        //     },
+        //   ),
+        // ), // end of category section
 
-        SizedBox(
-          height: 6.h,
-        ),
+        // SizedBox(
+        //   height: 6.h,
+        // ),
 
         //recommended section
 
