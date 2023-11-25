@@ -3,7 +3,11 @@ import 'package:get/get.dart';
 import 'package:jobhub/constants.dart';
 
 class JobHubBackButton extends StatelessWidget {
-  const JobHubBackButton({
+  IconData? icon;
+  Function()? onPressed;
+  JobHubBackButton({
+    this.onPressed,
+    this.icon,
     super.key,
   });
 
@@ -16,12 +20,13 @@ class JobHubBackButton extends StatelessWidget {
         child: IconButton(
           alignment: Alignment.topLeft,
           icon: Icon(
-            Icons.arrow_back,
+            icon ?? Icons.arrow_back,
             color: Colors.white,
           ),
-          onPressed: () {
-            Get.back();
-          },
+          onPressed: onPressed ??
+              () {
+                Get.back();
+              },
         ),
       ),
     ]);

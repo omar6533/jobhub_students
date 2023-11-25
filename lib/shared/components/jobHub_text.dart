@@ -35,3 +35,5 @@ TextStyle? size20BoldBlack =
     TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.black);
 TextStyle? size32Black =
     TextStyle(fontSize: 32, fontWeight: FontWeight.w400, color: Colors.black);
+TextStyle? size32BlackBold =
+    TextStyle(fontSize: 34, fontWeight: FontWeight.w400, color: Colors.black);

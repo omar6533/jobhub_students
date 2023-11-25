@@ -19,7 +19,7 @@ class StudentProfileExperienceView extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: ListView(
         children: [
-          const JobHubBackButton(),
+          JobHubBackButton(),
           SizedBox(
             height: 6.h,
           ),
