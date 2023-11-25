@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:get/get.dart';
 import 'package:jobhub/constants.dart';
+import 'package:jobhub/employer/landing/views/emp_landing_view.dart';
 import 'package:jobhub/employer/profile/views/emp_profile_view.dart';
 import 'package:jobhub/shared/components/jobHub_back_button.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
@@ -50,7 +51,7 @@ class EmpLoginView extends StatelessWidget {
                 JobHubButton(
                   text: 'Login',
                   onPressed: () {
-                    Get.to(() => EmpProfileView());
+                    Get.to(() => EmpLandingView());
                   },
                 ),
               ],
