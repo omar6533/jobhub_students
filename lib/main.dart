@@ -66,73 +66,76 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     AuthController authController = Get.find();
     return Scaffold(
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              JobHubBackButton(),
-              Image.asset('assets/JobHub.png'),
-              SizedBox(
-                height: 44, // Set the desired height
-                child: TextField(
-                  controller: authController
-                      .emailController, // Provide your controller here
-                  readOnly: true, // Set to true to make it non-editable
-                  decoration: InputDecoration(
-                    filled: true,
-                    fillColor: AppColors
-                        .textFiledBackgroundColor, // Set the background color
-                    border: OutlineInputBorder(
-                      borderRadius:
-                          BorderRadius.circular(8), // Set the border radius
-                      borderSide: BorderSide.none, // Hide the border
-                    ),
-                    hintText:
-                        '${authController.emailController.text.isNotEmpty ? authController.emailController.text : "PSU Email"}', // Set the hint text
-                    hintStyle: TextStyle(
-                        color: AppColors.textFiledHintColor.withOpacity(0.3)),
-                    // Set the hint text color
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 10.h,
+            ),
+            JobHubBackButton(),
+            SizedBox(
+              height: 15.h,
+            ),
+            Image.asset('assets/JobHub.png'),
+            SizedBox(
+              height: 15.h,
+            ),
+            SizedBox(
+              height: 44, // Set the desired height
+              child: TextField(
+                controller: authController
+                    .emailController, // Provide your controller here
+                readOnly: true, // Set to true to make it non-editable
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: AppColors
+                      .textFiledBackgroundColor, // Set the background color
+                  border: OutlineInputBorder(
+                    borderRadius:
+                        BorderRadius.circular(8), // Set the border radius
+                    borderSide: BorderSide.none, // Hide the border
                   ),
+                  hintText:
+                      '${authController.emailController.text.isNotEmpty ? authController.emailController.text : "PSU Email"}', // Set the hint text
+                  hintStyle: TextStyle(
+                      color: AppColors.textFiledHintColor.withOpacity(0.3)),
+                  // Set the hint text color
                 ),
               ),
-              SizedBox(
-                width: 343,
-                height: 40,
-                child: JobHubButton(
-                  text: 'Login By PSU Email',
-                  imagePath: 'assets/google_logo.png',
-                  onPressed: () async {
-                    try {
-                      await authController.signInWithGoogle();
-                      if (authController.googleUser?.email
-                              .contains('psu.edu.sa') ??
-                          false) {
-                        authController.emailController.text =
-                            authController.googleUser?.email.toString() ?? '';
-                        showMessage(
-                            title: 'Successfully logged in',
-                            color: Colors.green);
-                        Get.offAll(() => StudentLanding());
-                      } else {
-                        authController.emailController.text =
-                            authController.googleUser?.email.toString() ?? '';
-                        showMessage(
-                            title: 'Error',
-                            message:
-                                'You need to login using PSU Gmail account',
-                            duration: 10,
-                            color: Colors.red);
-                      }
-                    } catch (e) {
-                      print(e); //hello
-                    }
-                  },
-                ),
-              )
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 8.h,
+            ),
+            JobHubButton(
+              text: 'Login By PSU Email',
+              imagePath: 'assets/google_logo.png',
+              onPressed: () async {
+                try {
+                  await authController.signInWithGoogle();
+                  if (authController.googleUser?.email.contains('psu.edu.sa') ??
+                      false) {
+                    authController.emailController.text =
+                        authController.googleUser?.email.toString() ?? '';
+                    showMessage(
+                        title: 'Successfully logged in', color: Colors.green);
+                    Get.offAll(() => StudentLanding());
+                  } else {
+                    authController.emailController.text =
+                        authController.googleUser?.email.toString() ?? '';
+                    showMessage(
+                        title: 'Error',
+                        message: 'You need to login using PSU Gmail account',
+                        duration: 10,
+                        color: Colors.red);
+                  }
+                } catch (e) {
+                  print(e); //hello
+                }
+              },
+            )
+          ],
         ),
       ),
     );

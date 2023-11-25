@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:get/get.dart';
 import 'package:jobhub/constants.dart';
+import 'package:jobhub/shared/components/jobHub_back_button.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
 import 'package:jobhub/shared/components/jobHub_text_filed.dart';
@@ -18,6 +19,10 @@ class EmpLoginView extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                JobHubBackButton(),
+                SizedBox(
+                  height: 3.h,
+                ),
                 Image.asset('assets/JobHub.png'),
                 SizedBox(
                   height: 15.h,
