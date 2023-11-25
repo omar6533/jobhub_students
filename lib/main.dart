@@ -7,6 +7,8 @@ import 'package:google_sign_in/widgets.dart';
 import 'package:jobhub/authintication/controllers/auth_controller.dart';
 import 'package:jobhub/binding_controller.dart';
 import 'package:jobhub/constants.dart';
+import 'package:jobhub/jobhub_first_view.dart';
+import 'package:jobhub/shared/components/jobHub_back_button.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/shared/helpers.dart';
 import 'package:jobhub/student_landing/views/student_landing_view.dart';
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF008fbe)),
           useMaterial3: true,
         ),
-        home: const MyHomePage(title: 'PSU JobHub'),
+        home: const FirstView(),
       ),
     );
   }
@@ -70,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              JobHubBackButton(),
               Image.asset('assets/JobHub.png'),
               SizedBox(
                 height: 44, // Set the desired height
