@@ -3,16 +3,20 @@ import 'package:jobhub/constants.dart';
 
 class JobHubText extends StatelessWidget {
   String? text;
+  TextAlign? textAlign;
+
   TextStyle? style;
   JobHubText({
     required this.text,
     this.style,
+    this.textAlign,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Text(
+      textAlign: textAlign ?? TextAlign.start,
       text.toString(),
       style: style,
     );
@@ -29,3 +33,5 @@ TextStyle? nameStyle = TextStyle(
     fontSize: 20, fontWeight: FontWeight.w700, color: AppColors.primary);
 TextStyle? size20BoldBlack =
     TextStyle(fontSize: 20, fontWeight: FontWeight.w700, color: Colors.black);
+TextStyle? size32Black =
+    TextStyle(fontSize: 32, fontWeight: FontWeight.w400, color: Colors.black);
