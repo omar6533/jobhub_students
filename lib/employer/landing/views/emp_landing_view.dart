@@ -32,12 +32,12 @@ class EmpLandingView extends StatelessWidget {
               label: 'Profile',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.work),
-              label: 'Jobs',
+              icon: Icon(Icons.file_copy),
+              label: 'Applications',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings_applications),
-              label: 'Applications',
+              icon: Icon(Icons.work),
+              label: 'Jobs',
             ),
           ],
         ),
