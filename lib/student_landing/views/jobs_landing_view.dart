@@ -4,6 +4,7 @@ import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:get/get.dart';
 import 'package:jobhub/authintication/controllers/auth_controller.dart';
 import 'package:jobhub/constants.dart';
+import 'package:jobhub/shared/components/jobHub_jobs_widget.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
 import 'package:jobhub/student_landing/controller/student_landing_controller.dart';
 
@@ -168,41 +169,7 @@ class JobsLandingView extends StatelessWidget {
             itemCount: 5,
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
-              return Container(
-                margin: const EdgeInsets.symmetric(vertical: 8),
-                padding: const EdgeInsets.all(8),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.white,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        ClipOval(
-                          child: Image.asset('assets/Coinbase.png'),
-                        ),
-                        SizedBox(
-                          width: 2.w,
-                        ),
-                        JobHubText(
-                          text: 'Product Designer',
-                          style: size20BoldBlack,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 4.h,
-                    ),
-                    JobHubText(text: 'Sa, Riyadh'),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    JobHubText(text: '2 days ago'),
-                  ],
-                ),
-              );
+              return JobWidget();
             },
           ),
         )

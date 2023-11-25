@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:jobhub/constants.dart';
 import 'package:jobhub/shared/components/jobHub_back_button.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
+import 'package:jobhub/shared/components/jobHub_jobs_widget.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
 import 'package:jobhub/shared/components/jobHub_text_filed.dart';
 
@@ -18,6 +19,7 @@ class EmpJobsView extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ListView(
           children: [
+            // add job section
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -143,6 +145,19 @@ class EmpJobsView extends StatelessWidget {
                   },
                 )
               ],
+            ), // end of add job section
+            SizedBox(
+              height: 4.h,
+            ),
+
+            ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return JobWidget();
+              },
             )
           ],
         ),
