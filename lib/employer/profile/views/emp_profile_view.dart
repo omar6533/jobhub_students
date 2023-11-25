@@ -3,6 +3,8 @@ import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:get/get.dart';
 import 'package:jobhub/constants.dart';
 import 'package:jobhub/employer/profile/controllers/emp_profile_controller.dart';
+import 'package:jobhub/jobhub_first_view.dart';
+import 'package:jobhub/main.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
 import 'package:jobhub/shared/components/jobHub_text_filed.dart';
@@ -122,6 +124,16 @@ class EmpProfileView extends StatelessWidget {
               JobHubButton(
                 text: 'Submit',
                 onPressed: () {},
+              ),
+              SizedBox(
+                height: 1.h,
+              ),
+              JobHubButton(
+                backgroundColor: Colors.red,
+                text: 'Log out',
+                onPressed: () {
+                  Get.offAll(FirstView());
+                },
               )
             ],
           ),

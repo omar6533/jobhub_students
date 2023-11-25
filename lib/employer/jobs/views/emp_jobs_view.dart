@@ -44,7 +44,7 @@ class EmpJobsView extends StatelessWidget {
                               0.9, // Set height to 80% of screen height
 
                           child: Container(
-                            padding: const EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(24),
                             child: ListView(
                               padding: EdgeInsets.zero,
                               children: [

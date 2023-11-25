@@ -4,10 +4,13 @@ import 'package:jobhub/constants.dart';
 class JobHubButton extends StatelessWidget {
   void Function()? onPressed;
   String? text;
+  Color? backgroundColor;
+
   String? imagePath;
   JobHubButton({
     required this.onPressed,
     this.text,
+    this.backgroundColor,
     this.imagePath,
     super.key,
   });
@@ -24,7 +27,8 @@ class JobHubButton extends StatelessWidget {
           ),
           padding:
               MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
-          backgroundColor: MaterialStateProperty.all<Color>(AppColors.primary)),
+          backgroundColor: MaterialStateProperty.all<Color>(
+              backgroundColor ?? AppColors.primary)),
       onPressed: onPressed,
       child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         imagePath != null
