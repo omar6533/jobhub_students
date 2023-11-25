@@ -2,25 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:jobhub/constants.dart';
 
 class JobHubTextFiled extends StatelessWidget {
-  const JobHubTextFiled({
+  Color? textFiledColor;
+  String? hintText;
+  JobHubTextFiled({
+    this.hintText,
+    this.textFiledColor,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey, // Shadow color
-            blurRadius: 250, // Adjust the blur radius as needed
-          ),
-        ],
-      ),
+      decoration: BoxDecoration(),
       child: TextField(
         decoration: InputDecoration(
+            hintText: hintText ?? '',
             filled: true,
-            fillColor: Colors.white,
+            fillColor: textFiledColor ?? Colors.white,
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
                 borderSide: BorderSide(

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sizer/flutter_sizer.dart';
 import 'package:get/get.dart';
-import 'package:jobhub/employer/authintication/view/emp_login_view.dart';
-import 'package:jobhub/main.dart';
+import 'package:jobhub/constants.dart';
 import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
+import 'package:jobhub/shared/components/jobHub_text_filed.dart';
 
-class FirstView extends StatelessWidget {
-  const FirstView({super.key});
+class EmpLoginView extends StatelessWidget {
+  const EmpLoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,26 +23,27 @@ class FirstView extends StatelessWidget {
                   height: 15.h,
                 ),
                 JobHubText(
-                  text: 'Login',
+                  text: 'Employer login',
                   style: size20BoldBlack,
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 10.h,
                 ),
-                JobHubButton(
-                  text: 'Student login',
-                  onPressed: () {
-                    Get.to(MyHomePage(title: 'PSU JobHub'));
-                  },
-                ),
+                JobHubTextFiled(
+                    hintText: 'Email',
+                    textFiledColor: AppColors.textFiledBackgroundColor),
                 SizedBox(
                   height: 1.h,
                 ),
+                JobHubTextFiled(
+                    hintText: 'Password',
+                    textFiledColor: AppColors.textFiledBackgroundColor),
+                SizedBox(
+                  height: 6.h,
+                ),
                 JobHubButton(
-                  text: 'Employer login',
-                  onPressed: () {
-                    Get.to(EmpLoginView());
-                  },
+                  text: 'Login',
+                  onPressed: () {},
                 ),
               ],
             )),
