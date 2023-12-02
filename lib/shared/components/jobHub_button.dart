@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobhub/constants.dart';
+import 'package:jobhub/shared/components/jobHub_text.dart';
 
 class JobHubButton extends StatelessWidget {
   void Function()? onPressed;
@@ -41,9 +42,10 @@ class JobHubButton extends StatelessWidget {
         const SizedBox(
           width: 10,
         ),
-        Text(
-          text.toString(),
-          style: TextStyle(color: Colors.white),
+        JobHubText(
+          text: text,
+          style: size12textWhite,
+          textAlign: TextAlign.center,
         )
       ]),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jobhub/employer/applicants/views/emp_applicants_view.dart';
 import 'package:jobhub/employer/jobs/views/emp_jobs_view.dart';
 import 'package:jobhub/employer/landing/controller/emp_landing_controller.dart';
 
@@ -14,7 +15,7 @@ class EmpLandingView extends StatelessWidget {
     EmpLandingController empLandingController = Get.put(EmpLandingController());
     final listOfWidgets = [
       EmpProfileView(),
-      EmpProfileView(),
+      EmpApplicantsView(),
       EmpJobsView(),
     ];
     return Scaffold(
