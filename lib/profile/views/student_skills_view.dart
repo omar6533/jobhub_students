@@ -67,23 +67,34 @@ class _StudentSkillsViwState extends State<StudentProfileSkillsViw> {
           ),
           JobHubButton(
             onPressed: () async {
-              showLoaderDialog(context);
-              String? udId = await authController.getGoogleUserID();
-              await studentProfileController.saveStudentInfo(
-                documentId: udId.toString(),
-                nameAR: studentProfileController.arabicName.text,
-                major: studentProfileController.major.text,
-                gpa: studentProfileController.gpa.text,
-                nationality: studentProfileController.nationality.text,
-                mobileNo: studentProfileController.phone.text,
-              );
-              dismissLoaderDialog(context);
-              showMessage(
-                  color: Colors.green,
-                  title: 'Submitted',
-                  message: 'Your data has been submitted');
+              try {
+                showLoaderDialog(context);
+                String? udId = await authController.getGoogleUserID();
+                await studentProfileController.saveStudentInfo(
+                  documentId: udId.toString(),
+                  nameAR: studentProfileController.arabicName.text,
+                  major: studentProfileController.major.text,
+                  gpa: studentProfileController.gpa.text,
+                  nationality: studentProfileController.nationality.text,
+                  mobileNo: studentProfileController.phone.text,
+                );
+                await studentProfileController.getUserDataByUid(udId ?? '');
+                dismissLoaderDialog(context);
+                studentProfileController.selectedProfileOption.value = 0;
+                Get.back();
+                showMessage(
+                    color: Colors.green,
+                    title: 'Submitted',
+                    message: 'Your data has been submitted');
 
-              studentProfileController.isStudentProfileEmpty.value = false;
+                studentProfileController.isStudentProfileEmpty.value = false;
+              } catch (e) {
+                dismissLoaderDialog(context);
+                showMessage(
+                    title: 'Error',
+                    color: Colors.red,
+                    message: 'An error occured');
+              }
             },
             text: "Submit",
           )
