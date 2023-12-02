@@ -99,143 +99,158 @@ class _StudentProfileViewState extends State<StudentProfileView> {
                     ],
                   ),
                 )
-              : SizedBox(
-                  width: Get.width,
-                  height: 100,
-                  child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 3,
-                        itemBuilder: (context, index) {
-                          return GestureDetector(
-                            child: SizedBox(
-                              width:
-                                  150, // Adjust the width according to your needs
-                              child: Obx(() => Column(
+              : Column(
+                  children: [
+                    SizedBox(
+                        width: Get.width,
+                        height: 100,
+                        child: Padding(
+                            padding: const EdgeInsets.all(16.0),
+                            child: ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              scrollDirection: Axis.horizontal,
+                              itemCount: 3,
+                              itemBuilder: (context, index) {
+                                return GestureDetector(
+                                  child: SizedBox(
+                                    width:
+                                        150, // Adjust the width according to your needs
+                                    child: Obx(() => Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            JobHubText(
+                                              text: 'element at $index',
+                                              style: studentProfileController
+                                                          .selectedProfileOption
+                                                          .value ==
+                                                      index
+                                                  ? size14Primary
+                                                  : size14Black,
+                                            ),
+                                          ],
+                                        )),
+                                  ),
+                                  onTap: () {
+                                    studentProfileController
+                                        .selectedProfileOption.value = index;
+                                  },
+                                );
+                              },
+                            ))),
+                    Obx(() => studentProfileController
+                                .selectedProfileOption.value ==
+                            0
+                        ? GetBuilder<StudentProfileController>(
+                            builder: (studentProfileController) {
+                            return Container(
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 12),
+                              padding: const EdgeInsets.all(16),
+                              decoration: BoxDecoration(
+                                  color: AppColors.containerBackgroundColor,
+                                  borderRadius: BorderRadius.circular(12)),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  JobHubText(
+                                    text: 'Contact information',
+                                    style: size18w500Black,
+                                  ),
+                                  SizedBox(
+                                    height: 4.h,
+                                  ),
+                                  Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
+                                      Icon(Icons.phone),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
                                       JobHubText(
-                                        text: 'element at $index',
-                                        style: studentProfileController
-                                                    .selectedProfileOption
-                                                    .value ==
-                                                index
-                                            ? size14Primary
-                                            : size14Black,
+                                          text: studentProfileController
+                                                      .currentUserData[
+                                                  'mobileNo'] ??
+                                              ''),
+                                      SizedBox(
+                                        height: 2.h,
                                       ),
                                     ],
-                                  )),
-                            ),
-                            onTap: () {
-                              studentProfileController
-                                  .selectedProfileOption.value = index;
-                            },
-                          );
-                        },
-                      )))),
+                                  ),
+                                  SizedBox(
+                                    height: 2.h,
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icon(Icons.email),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      JobHubText(
+                                          text: authController
+                                                  .googleUser?.email ??
+                                              ''),
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 2.h,
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icon(Icons.person),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      JobHubText(
+                                          text: studentProfileController
+                                                      .currentUserData[
+                                                  'nationality'] ??
+                                              ''),
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 2.h,
+                                  ),
+                                  Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icon(Icons.work),
+                                      SizedBox(
+                                        width: 5.w,
+                                      ),
+                                      JobHubText(
+                                          text: studentProfileController
+                                                  .currentUserData['major'] ??
+                                              ''),
+                                      SizedBox(
+                                        height: 2.h,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            );
+                          })
+                        : const SizedBox())
+                  ],
+                )),
         ]),
-        Obx(() => studentProfileController.selectedProfileOption.value == 0
-            ? GetBuilder<StudentProfileController>(
-                builder: (studentProfileController) {
-                return Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 12),
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                      color: AppColors.containerBackgroundColor,
-                      borderRadius: BorderRadius.circular(12)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      JobHubText(
-                        text: 'Contact information',
-                        style: size18w500Black,
-                      ),
-                      SizedBox(
-                        height: 4.h,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(Icons.phone),
-                          SizedBox(
-                            width: 5.w,
-                          ),
-                          JobHubText(
-                              text: studentProfileController
-                                      .currentUserData['mobileNo'] ??
-                                  ''),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(Icons.email),
-                          SizedBox(
-                            width: 5.w,
-                          ),
-                          JobHubText(
-                              text: authController.googleUser?.email ?? ''),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(Icons.person),
-                          SizedBox(
-                            width: 5.w,
-                          ),
-                          JobHubText(
-                              text: studentProfileController
-                                      .currentUserData['nationality'] ??
-                                  ''),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 2.h,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Icon(Icons.work),
-                          SizedBox(
-                            width: 5.w,
-                          ),
-                          JobHubText(
-                              text: studentProfileController
-                                      .currentUserData['major'] ??
-                                  ''),
-                          SizedBox(
-                            height: 2.h,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                );
-              })
-            : const SizedBox())
       ],
     );
   }
