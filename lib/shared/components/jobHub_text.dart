@@ -29,6 +29,7 @@ TextStyle? size18w500Black =
 TextStyle? size14Black = TextStyle(
   fontSize: 14,
 );
+TextStyle? size14Primary = TextStyle(fontSize: 14, color: AppColors.primary);
 TextStyle? nameStyle = TextStyle(
     fontSize: 20, fontWeight: FontWeight.w700, color: AppColors.primary);
 TextStyle? size20BoldBlack =
