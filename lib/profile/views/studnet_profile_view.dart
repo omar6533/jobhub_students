@@ -10,15 +10,34 @@ import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/profile/controller/studnet_profile_controller.dart';
 import 'package:jobhub/profile/views/student_profile_experince.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
+import 'package:jobhub/shared/helpers.dart';
 
-class StudentProfileView extends StatelessWidget {
+class StudentProfileView extends StatefulWidget {
   const StudentProfileView({super.key});
 
   @override
+  State<StudentProfileView> createState() => _StudentProfileViewState();
+}
+
+class _StudentProfileViewState extends State<StudentProfileView> {
+  AuthController authController = Get.find();
+  StudentProfileController studentProfileController =
+      Get.put(StudentProfileController());
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      showLoaderDialog(context);
+      String? udID = authController.getGoogleUserID();
+      studentProfileController.getUserDataByUid(udID ?? '');
+      dismissLoaderDialog(context);
+    });
+
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    AuthController authController = Get.find();
-    StudentProfileController studentProfileController =
-        Get.put(StudentProfileController());
     return ListView(
       children: [
         Padding(

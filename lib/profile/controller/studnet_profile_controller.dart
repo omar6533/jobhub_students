@@ -39,8 +39,10 @@ class StudentProfileController extends GetxController {
       DocumentSnapshot userData = await studentsCollection.doc(uid).get();
 
       if (userData.exists) {
+        isStudentProfileEmpty.value = false;
         return userData.data();
       } else {
+        isStudentProfileEmpty.value = true;
         if (kDebugMode) {
           print('User data not found for UID: $uid');
         }
@@ -55,6 +57,7 @@ class StudentProfileController extends GetxController {
   }
 
   Future<void> saveStudentInfo({
+    required String documentId,
     String college = "",
     String cv = "",
     String extraMobileNo = "",
@@ -69,7 +72,7 @@ class StudentProfileController extends GetxController {
     String professionalMail = "",
   }) async {
     try {
-      await studentsCollection.add({
+      await studentsCollection.doc(documentId).set({
         'college': college,
         'cv': cv,
         'extraMobileNo': extraMobileNo,
