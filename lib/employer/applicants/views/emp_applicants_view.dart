@@ -61,21 +61,34 @@ class EmpApplicantsView extends StatelessWidget {
                           SizedBox(
                             width: 5.w,
                           ),
-                          JobHubButton(
-                            backgroundColor: AppColors.primary,
-                            text: 'Accept',
-                            onPressed: () {},
+                          Expanded(
+                            child: JobHubButton(
+                              backgroundColor: AppColors.primary,
+                              text: 'Accept',
+                              onPressed: () {},
+                            ),
                           ),
                           SizedBox(
                             width: 1.w,
                           ),
-                          JobHubButton(
-                            backgroundColor: Colors.red,
-                            text: 'Reject',
-                            onPressed: () {},
+                          Expanded(
+                            child: JobHubButton(
+                              backgroundColor: Colors.red,
+                              text: 'Reject',
+                              onPressed: () {},
+                            ),
                           ),
                         ],
-                      )
+                      ),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      JobHubButton(
+                        backgroundColor: AppColors.containerBackgroundColor,
+                        text: 'Schedule a meeting ',
+                        textStyle: size12textBlack,
+                        onPressed: () {},
+                      ),
                     ],
                   ),
                 );

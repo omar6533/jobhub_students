@@ -6,10 +6,12 @@ class JobHubButton extends StatelessWidget {
   void Function()? onPressed;
   String? text;
   Color? backgroundColor;
+  TextStyle? textStyle;
 
   String? imagePath;
   JobHubButton({
     required this.onPressed,
+    this.textStyle,
     this.text,
     this.backgroundColor,
     this.imagePath,
@@ -44,7 +46,7 @@ class JobHubButton extends StatelessWidget {
         ),
         JobHubText(
           text: text,
-          style: size12textWhite,
+          style: textStyle ?? size12textWhite,
           textAlign: TextAlign.center,
         )
       ]),

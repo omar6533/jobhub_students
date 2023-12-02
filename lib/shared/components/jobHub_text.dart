@@ -35,6 +35,10 @@ TextStyle? size12textWhite = TextStyle(
   fontSize: 12,
   color: Colors.white,
 );
+TextStyle? size12textBlack = TextStyle(
+  fontSize: 12,
+  color: Colors.black,
+);
 TextStyle? size14Primary = TextStyle(fontSize: 14, color: AppColors.primary);
 TextStyle? nameStyle = TextStyle(
     fontSize: 20, fontWeight: FontWeight.w700, color: AppColors.primary);
