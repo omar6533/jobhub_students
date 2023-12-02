@@ -138,100 +138,103 @@ class _StudentProfileViewState extends State<StudentProfileView> {
                       )))),
         ]),
         Obx(() => studentProfileController.selectedProfileOption.value == 0
-            ? Container(
-                margin: const EdgeInsets.symmetric(horizontal: 12),
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                    color: AppColors.containerBackgroundColor,
-                    borderRadius: BorderRadius.circular(12)),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    JobHubText(
-                      text: 'Contact information',
-                      style: size18w500Black,
-                    ),
-                    SizedBox(
-                      height: 4.h,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(Icons.phone),
-                        SizedBox(
-                          width: 5.w,
-                        ),
-                        JobHubText(
-                            text: studentProfileController
-                                    .currentUserData['mobileNo'] ??
-                                ''),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(Icons.email),
-                        SizedBox(
-                          width: 5.w,
-                        ),
-                        JobHubText(
-                            text: authController.googleUser?.email ?? ''),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(Icons.person),
-                        SizedBox(
-                          width: 5.w,
-                        ),
-                        JobHubText(
-                            text: studentProfileController
-                                    .currentUserData['nationality'] ??
-                                ''),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 2.h,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(Icons.work),
-                        SizedBox(
-                          width: 5.w,
-                        ),
-                        JobHubText(
-                            text: studentProfileController
-                                    .currentUserData['major'] ??
-                                ''),
-                        SizedBox(
-                          height: 2.h,
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              )
+            ? GetBuilder<StudentProfileController>(
+                builder: (studentProfileController) {
+                return Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 12),
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                      color: AppColors.containerBackgroundColor,
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      JobHubText(
+                        text: 'Contact information',
+                        style: size18w500Black,
+                      ),
+                      SizedBox(
+                        height: 4.h,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(Icons.phone),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          JobHubText(
+                              text: studentProfileController
+                                      .currentUserData['mobileNo'] ??
+                                  ''),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(Icons.email),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          JobHubText(
+                              text: authController.googleUser?.email ?? ''),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(Icons.person),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          JobHubText(
+                              text: studentProfileController
+                                      .currentUserData['nationality'] ??
+                                  ''),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Icon(Icons.work),
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          JobHubText(
+                              text: studentProfileController
+                                      .currentUserData['major'] ??
+                                  ''),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                );
+              })
             : const SizedBox())
       ],
     );
@@ -239,13 +242,16 @@ class _StudentProfileViewState extends State<StudentProfileView> {
 
   @override
   void initState() {
+    super.initState();
+    getUserData();
+  }
+
+  getUserData() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       showLoaderDialog(context);
       String? udID = authController.getGoogleUserID();
-      studentProfileController.getUserDataByUid(udID ?? '');
+      await studentProfileController.getUserDataByUid(udID ?? '');
       dismissLoaderDialog(context);
     });
-
-    super.initState();
   }
 }

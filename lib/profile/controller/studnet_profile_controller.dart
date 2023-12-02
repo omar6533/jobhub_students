@@ -23,7 +23,7 @@ class StudentProfileController extends GetxController {
   TextEditingController date = TextEditingController();
 
   RxInt selectedwidgetIndex = 0.obs;
-  RxInt selectedProfileOption = (-1).obs;
+  RxInt selectedProfileOption = 0.obs;
   Map<String, dynamic> currentUserData = {};
 
   addStudent() {}
@@ -43,6 +43,8 @@ class StudentProfileController extends GetxController {
       if (userData.exists) {
         isStudentProfileEmpty.value = false;
         currentUserData = userData.data() as Map<String, dynamic>;
+        update();
+
         return currentUserData;
       } else {
         isStudentProfileEmpty.value = true;
