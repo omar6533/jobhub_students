@@ -15,6 +15,7 @@ class StudentProfileExperienceView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     StudentProfileController studentProfileController = Get.find();
+
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: ListView(
@@ -38,7 +39,9 @@ class StudentProfileExperienceView extends StatelessWidget {
             text: 'Company name',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.companyName),
           SizedBox(
             height: 1.h,
           ),
@@ -46,7 +49,16 @@ class StudentProfileExperienceView extends StatelessWidget {
             text: 'Position',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.position),
+          JobHubText(
+            text: 'Description',
+            style: size14Black,
+          ),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.description),
           SizedBox(
             height: 1.h,
           ),
@@ -54,7 +66,9 @@ class StudentProfileExperienceView extends StatelessWidget {
             text: 'Start date',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.startDate),
           SizedBox(
             height: 1.h,
           ),
@@ -62,7 +76,9 @@ class StudentProfileExperienceView extends StatelessWidget {
             text: 'end date',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.endDate),
           SizedBox(
             height: 5.h,
           ),

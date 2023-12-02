@@ -3,8 +3,10 @@ import 'package:jobhub/constants.dart';
 
 class JobHubTextFiled extends StatelessWidget {
   Color? textFiledColor;
+  TextEditingController? textEditingController;
   String? hintText;
   JobHubTextFiled({
+    this.textEditingController,
     this.hintText,
     this.textFiledColor,
     super.key,
@@ -15,6 +17,7 @@ class JobHubTextFiled extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(),
       child: TextField(
+        controller: textEditingController,
         decoration: InputDecoration(
             hintText: hintText ?? '',
             filled: true,

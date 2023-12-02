@@ -8,6 +8,8 @@ import 'package:jobhub/shared/components/jobHub_button.dart';
 import 'package:jobhub/shared/components/jobHub_text.dart';
 import 'package:jobhub/shared/components/jobHub_text_filed.dart';
 
+import '../../constants.dart';
+
 class StudentProfilePersonInfo extends StatelessWidget {
   const StudentProfilePersonInfo({super.key});
 
@@ -38,7 +40,9 @@ class StudentProfilePersonInfo extends StatelessWidget {
             text: 'Arabic Name',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.arabicName),
           SizedBox(
             height: 1.h,
           ),
@@ -46,7 +50,9 @@ class StudentProfilePersonInfo extends StatelessWidget {
             text: 'Major',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.major),
           SizedBox(
             height: 1.h,
           ),
@@ -54,7 +60,9 @@ class StudentProfilePersonInfo extends StatelessWidget {
             text: 'GPA',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.gpa),
           SizedBox(
             height: 1.h,
           ),
@@ -62,7 +70,9 @@ class StudentProfilePersonInfo extends StatelessWidget {
             text: 'Nationality',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.nationality),
           SizedBox(
             height: 1.h,
           ),
@@ -70,7 +80,9 @@ class StudentProfilePersonInfo extends StatelessWidget {
             text: 'Phone',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.phone),
           SizedBox(
             height: 5.h,
           ),

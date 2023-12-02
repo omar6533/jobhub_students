@@ -10,6 +10,8 @@ import 'package:jobhub/shared/components/jobHub_text.dart';
 import 'package:jobhub/shared/components/jobHub_text_filed.dart';
 import 'package:jobhub/shared/helpers.dart';
 
+import '../../constants.dart';
+
 class StudentProfileSkillsViw extends StatefulWidget {
   const StudentProfileSkillsViw({super.key});
 
@@ -45,7 +47,9 @@ class _StudentSkillsViwState extends State<StudentProfileSkillsViw> {
             text: 'Certificate Name',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.certificatName),
           SizedBox(
             height: 1.h,
           ),
@@ -53,20 +57,28 @@ class _StudentSkillsViwState extends State<StudentProfileSkillsViw> {
             text: 'Date',
             style: size14Black,
           ),
-          JobHubTextFiled(),
+          JobHubTextFiled(
+              textFiledColor: AppColors.textFiledBackgroundColor,
+              textEditingController: studentProfileController.date),
           SizedBox(
             height: 5.h,
           ),
           JobHubButton(
             onPressed: () async {
               showLoaderDialog(context);
-              await Future.delayed(Duration(seconds: 3));
+              await studentProfileController.saveStudentInfo(
+                nameAR: studentProfileController.arabicName.text,
+                major: studentProfileController.major.text,
+                gpa: studentProfileController.gpa.text,
+                nationality: studentProfileController.nationality.text,
+                mobileNo: studentProfileController.phone.text,
+              );
+              dismissLoaderDialog(context);
               showMessage(
                   color: Colors.green,
                   title: 'Submitted',
                   message: 'Your data has been submitted');
 
-              dismissLoaderDialog(context);
               studentProfileController.isStudentProfileEmpty.value = false;
             },
             text: "Submit",
